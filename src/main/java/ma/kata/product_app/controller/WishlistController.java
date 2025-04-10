@@ -1,5 +1,6 @@
 package ma.kata.product_app.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import ma.kata.product_app.dto.api.ApiResponse;
 import ma.kata.product_app.dto.wishlist.WishlistItemRequestDto;
 import ma.kata.product_app.dto.wishlist.WishlistResponseDto;
@@ -19,6 +20,10 @@ public class WishlistController {
     }
 
     @GetMapping
+    @Operation(
+            summary = "Get wish list of authenticated user",
+            description = "Returns the wish list details for the currently logged-in user."
+    )
     public ApiResponse<WishlistResponseDto> getWishlist() {
         return ApiResponseMapper.FromMessageCodetoResponse(
                 MessageCode.WISHLIST_GET_SUCCESS,
@@ -27,6 +32,7 @@ public class WishlistController {
     }
 
     @PostMapping("/add")
+    @Operation(summary = "Add a product to the current user's wish list")
     public ApiResponse<WishlistResponseDto> addProductToWishlist(@RequestBody WishlistItemRequestDto wishlistItemRequestDto) {
         return ApiResponseMapper.FromMessageCodetoResponse(
                 MessageCode.PRODUCT_CREATED_SUCCESS,
@@ -35,6 +41,7 @@ public class WishlistController {
     }
 
     @DeleteMapping("/remove/{productId}")
+    @Operation(summary = "Remove a product from the current user's wish list")
     public ApiResponse<WishlistResponseDto> removeProductFromWishlist(@PathVariable Long productId) {
         return ApiResponseMapper.FromMessageCodetoResponse(
                 MessageCode.WISHLIST_DELETED_SUCCESS,

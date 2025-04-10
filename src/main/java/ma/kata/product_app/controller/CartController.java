@@ -21,7 +21,8 @@ public class CartController {
     @Operation(
             summary = "Get cart of authenticated user",
             description = "Returns the cart details for the currently logged-in user."
-    )    @GetMapping
+    )
+    @GetMapping
     public ApiResponse<CartResponseDto> getCart() {
         return ApiResponseMapper.FromMessageCodetoResponse(
                 MessageCode.CART_GET_SUCCESS,

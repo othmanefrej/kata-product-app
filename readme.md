@@ -33,3 +33,17 @@ src/
 - **exception/** : Gestion des exceptions personnalisées et centralisées.
 - **security/** : Configuration de l'authentification et de l'autorisation (JWT, filtres, etc.).
 - **utils/** : Classes utilitaires réutilisables.
+
+---
+
+### **2. Documentation API avec Swagger**
+
+Le projet intègre **Swagger UI** pour faciliter la visualisation et le test des endpoints REST de l'application.
+
+- Une fois l'application démarrée, accédez à la documentation interactive via l'URL suivante :
+
+🔗 [http://localhost:8082/api/swagger-ui/index.html](http://localhost:8082/api/swagger-ui/index.html)
+
+> Assurez-vous que le port `8082` est bien utilisé dans votre `application.properties`.
+
+---
